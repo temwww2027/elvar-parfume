@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ELVAR PARFUM</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --black: #090807;
+  --gold: #d6ad70;
+  --pink: #e7b5c5;
+  --line: #493a2c;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--pink);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+}
+
+header {
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 30px 20px;
+  background: radial-gradient(ellipse at center, #291c11, #090807 70%);
+}
+
+.logo {
+  color: var(--gold);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(50px, 10vw, 95px);
+  letter-spacing: 8px;
+}
+
+.subtitle {
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 7px;
+}
+
+.hero-text {
+  color: var(--pink);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 25px;
+  margin-top: 30px;
+}
+
+.hero-button {
+  margin-top: 35px;
+  padding: 14px 35px;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 3px;
+}
+
+section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 70px 20px;
+}
+
+.section-title {
+  text-align: center;
+  color: var(--gold);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 43px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.section-description {
+  text-align: center;
+  color: var(--pink);
+  font-size: 11px;
+  letter-spacing: 2px;
+  margin-bottom: 40px;
+}
+
+.catalog-item {
+  border-top: 1px solid var(--line);
+}
+
+.catalog-item:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.catalog-item summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 8px;
+  color: var(--pink);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 27px;
+}
+
+.catalog-item summary::-webkit-details-marker { display: none; }
+.catalog-item summary::after { content: '+'; color: var(--gold); }
+.catalog-item[open] summary::after { content: '−'; }
+
+.perfume-grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - 30px) / 4);
+  gap: 10px;
+  padding: 12px 5px 25px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-color: var(--gold) #211a14;
+  -webkit-overflow-scrolling: touch;
+}
+
+.perfume-card {
+  min-width: 0;
+  text-align: center;
+  scroll-snap-align: start;
+}
+
+.perfume-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  background: #211a14;
+  border: 1px solid var(--line);
+}
+
+.perfume-card h4 {
+  color: var(--pink);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+.about {
+  text-align: center;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.about-text {
+  max-width: 650px;
+  margin: auto;
+  color: var(--pink);
+  font-size: 13px;
+  line-height: 2;
+}
+
+.price-list { max-width: 550px; margin: auto; }
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 18px 5px;
+  border-bottom: 1px solid var(--line);
+  color: var(--pink);
+  font-size: 13px;
+}
+
+.price-row strong { color: var(--gold); white-space: nowrap; }
+
+.contacts { text-align: center; }
+
+.contact-link {
+  display: inline-block;
+  margin: 12px;
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 5px;
+  font-size: 13px;
+}
+
+footer {
+  text-align: center;
+  border-top: 1px solid var(--line);
+  padding: 35px 15px;
+  color: #a99b8d;
+  font-size: 10px;
+  letter-spacing: 2px;
+  line-height: 2.5;
+}
+
+footer span { color: var(--gold); }
+
+@media (max-width: 600px) {
+  section { padding: 55px 15px; }
+  .section-title { font-size: 36px; }
+  .catalog-item summary { font-size: 23px; }
+  .perfume-grid { grid-auto-columns: calc((100% - 20px) / 3); }
+  .perfume-card h4 { font-size: 14px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">ELVAR</div>
+  <div class="subtitle">PARFUM</div>
+  <p class="hero-text">The Art of Fragrance</p>
+  <a href="#catalog" class="hero-button">ОТКРЫТЬ КАТАЛОГ</a>
+</header>
+
+<section id="catalog">
+  <h2 class="section-title">Наш каталог</h2>
+  <p class="section-description">НАЙДИТЕ СВОЙ ИДЕАЛЬНЫЙ АРОМАТ</p>
+
+  <details class="catalog-item">
+    <summary>Мужские ароматы</summary>
+    <div class="perfume-grid">
+      <div class="perfume-card"><img src="images/mens-1.jpg" alt="Мужской аромат 1"><h4>Аромат 1</h4></div>
+      <div class="perfume-card"><img src="images/mens-2.jpg" alt="Мужской аромат 2"><h4>Аромат 2</h4></div>
+      <div class="perfume-card"><img src="images/mens-3.jpg" alt="Мужской аромат 3"><h4>Аромат 3</h4></div>
+      <div class="perfume-card"><img src="images/mens-4.jpg" alt="Мужской аромат 4"><h4>Аромат 4</h4></div>
+      <div class="perfume-card"><img src="images/mens-5.jpg" alt="Мужской аромат 5"><h4>Аромат 5</h4></div>
+      <div class="perfume-card"><img src="images/mens-6.jpg" alt="Мужской аромат 6"><h4>Аромат 6</h4></div>
+      <div class="perfume-card"><img src="images/mens-7.jpg" alt="Мужской аромат 7"><h4>Аромат 7</h4></div>
+      <div class="perfume-card"><img src="images/mens-8.jpg" alt="Мужской аромат 8"><h4>Аромат 8</h4></div>
+    </div>
+  </details>
+
+  <details class="catalog-item">
+    <summary>Женские ароматы</summary>
+    <div class="perfume-grid">
+      <div class="perfume-card"><img src="images/womens-1.jpg" alt="Женский аромат 1"><h4>Аромат 1</h4></div>
+      <div class="perfume-card"><img src="images/womens-2.jpg" alt="Женский аромат 2"><h4>Аромат 2</h4></div>
+      <div class="perfume-card"><img src="images/womens-3.jpg" alt="Женский аромат 3"><h4>Аромат 3</h4></div>
+      <div class="perfume-card"><img src="images/womens-4.jpg" alt="Женский аромат 4"><h4>Аромат 4</h4></div>
+      <div class="perfume-card"><img src="images/womens-5.jpg" alt="Женский аромат 5"><h4>Аромат 5</h4></div>
+      <div class="perfume-card"><img src="images/womens-6.jpg" alt="Женский аромат 6"><h4>Аромат 6</h4></div>
+      <div class="perfume-card"><img src="images/womens-7.jpg" alt="Женский аромат 7"><h4>Аромат 7</h4></div>
+      <div class="perfume-card"><img src="images/womens-8.jpg" alt="Женский аромат 8"><h4>Аромат 8</h4></div>
+    </div>
+  </details>
+
+  <details class="catalog-item">
+    <summary>Универсальные ароматы</summary>
+    <div class="perfume-grid">
+      <div class="perfume-card"><img src="images/unisex-1.jpg" alt="Универсальный аромат 1"><h4>Аромат 1</h4></div>
+      <div class="perfume-card"><img src="images/unisex-2.jpg" alt="Универсальный аромат 2"><h4>Аромат 2</h4></div>
+      <div class="perfume-card"><img src="images/unisex-3.jpg" alt="Универсальный аромат 3"><h4>Аромат 3</h4></div>
+      <div class="perfume-card"><img src="images/unisex-4.jpg" alt="Универсальный аромат 4"><h4>Аромат 4</h4></div>
+      <div class="perfume-card"><img src="images/unisex-5.jpg" alt="Универсальный аромат 5"><h4>Аромат 5</h4></div>
+      <div class="perfume-card"><img src="images/unisex-6.jpg" alt="Универсальный аромат 6"><h4>Аромат 6</h4></div>
+      <div class="perfume-card"><img src="images/unisex-7.jpg" alt="Универсальный аромат 7"><h4>Аромат 7</h4></div>
+      <div class="perfume-card"><img src="images/unisex-8.jpg" alt="Универсальный аромат 8"><h4>Аромат 8</h4></div>
+    </div>
+  </details>
+
+  <details class="catalog-item">
+    <summary>Нишевые ароматы</summary>
+    <div class="perfume-grid">
+      <div class="perfume-card"><img src="images/niche-1.jpg" alt="Нишевый аромат 1"><h4>Аромат 1</h4></div>
+      <div class="perfume-card"><img src="images/niche-2.jpg" alt="Нишевый аромат 2"><h4>Аромат 2</h4></div>
+      <div class="perfume-card"><img src="images/niche-3.jpg" alt="Нишевый аромат 3"><h4>Аромат 3</h4></div>
+      <div class="perfume-card"><img src="images/niche-4.jpg" alt="Нишевый аромат 4"><h4>Аромат 4</h4></div>
+      <div class="perfume-card"><img src="images/niche-5.jpg" alt="Нишевый аромат 5"><h4>Аромат 5</h4></div>
+      <div class="perfume-card"><img src="images/niche-6.jpg" alt="Нишевый аромат 6"><h4>Аромат 6</h4></div>
+      <div class="perfume-card"><img src="images/niche-7.jpg" alt="Нишевый аромат 7"><h4>Аромат 7</h4></div>
+      <div class="perfume-card"><img src="images/niche-8.jpg" alt="Нишевый аромат 8"><h4>Аромат 8</h4></div>
+    </div>
+  </details>
+</section>
+
+<section class="about">
+  <h2 class="section-title">О нас</h2>
+  <p class="about-text">
+    ELVAR PARFUM — пространство изысканных ароматов.
+    Мы ценим качество, индивидуальность и искусство парфюмерии.
+    Найдите аромат, который станет частью вашего стиля.
+  </p>
+</section>
+
+<section>
+  <h2 class="section-title">Наши цены</h2>
+  <p class="section-description">ВЫБЕРИТЕ ПОДХОДЯЩИЙ ОБЪЁМ</p>
+  <div class="price-list">
+    <div class="price-row"><span>Масло 10 мл</span><strong>5 000 ₸</strong></div>
+    <div class="price-row"><span>Масло 20 мл</span><strong>7 000 ₸</strong></div>
+    <div class="price-row"><span>Масло 30 мл</span><strong>10 000 ₸</strong></div>
+    <div class="price-row"><span>Оригинальная парфюмерия 1 мл</span><strong>1 000 ₸</strong></div>
+  </div>
+</section>
+
+<section class="contacts">
+  <h2 class="section-title">Связаться с нами</h2>
+  <p class="section-description">БУДЕМ РАДЫ ВАШЕМУ ОБРАЩЕНИЮ</p>
+  <a class="contact-link" href="https://www.instagram.com/elvar_parfum_kz/" target="_blank" rel="noopener">INSTAGRAM</a>
+</section>
+
+<footer>
+  <span>ELVAR PARFUM</span><br>
+  THE ART OF FRAGRANCE<br>
+  Оригинальные парфюмы<br>
+  © 2026 ELVAR PARFUM
+</footer>
+
+</body>
+</html>
